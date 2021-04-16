@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Random data
 gem 'faker'
+
+# Graphics and charts
+gem 'chartkick'
