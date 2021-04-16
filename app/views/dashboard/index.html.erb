@@ -1,6 +1,6 @@
 <h1>Dashboard#index</h1>
 <p>Find me in app/views/dashboard/index.html.erb</p>
 
-<%= column_chart Sale.group("strftime('%m-%Y', date_time)").order(date_time: :asc).sum(:amount) %>
+<%= column_chart Sale.last_12_months.group("strftime('%m-%Y', date_time)").order(date_time: :asc).sum(:amount), title: 'Ventas totales por mes' %>
 
-<%= pie_chart Sale.group(:variety).count %>
+<%= pie_chart Sale.last_12_months.group(:variety).count, title: 'Variedad de Café vendido' %>
