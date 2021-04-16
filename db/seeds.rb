@@ -7,6 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 50.times do
-    Sale.create(coffee_amount: rand(1000..10000), coffee_type:  (), coffee_price: (), date_time:
-    Faker::Date.between(2.year.ago, Date.today))
+    Sale.create(amount: rand(10..500), variety:  Faker::Coffee.intensifier, price: rand(1990..5490), origin: Faker::Coffee.origin, date_time: Faker::Date.between(from: 2.year.ago, to: Date.today))
 end

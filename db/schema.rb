@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_04_16_002308) do
 
   create_table "sales", force: :cascade do |t|
     t.integer "amount"
-    t.string "type"
-    t.decimal "price"
+    t.string "variety"
+    t.integer "price"
     t.string "origin"
     t.datetime "date_time"
     t.datetime "created_at", null: false
