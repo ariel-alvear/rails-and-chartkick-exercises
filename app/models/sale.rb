@@ -1,5 +1,5 @@
 class Sale < ApplicationRecord
-    def self.last_12_months
-        self.where("date_time < ?", 12.months.ago)
+    def self.last_months(x)
+        self.where("date_time < ?", x.months.ago)
     end
 end

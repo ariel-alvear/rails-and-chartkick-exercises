@@ -1,6 +1,24 @@
 <h1>Dashboard#index</h1>
 <p>Find me in app/views/dashboard/index.html.erb</p>
 
-<%= column_chart Sale.last_12_months.group("strftime('%m-%Y', date_time)").order(date_time: :asc).sum(:amount), title: 'Ventas totales por mes' %>
+<%= column_chart Sale.last_months(12).group("strftime('%m-%Y', date_time)").order(date_time: :asc).sum(:price), title: 'Ventas totales por mes' %>
 
-<%= pie_chart Sale.last_12_months.group(:variety).count, title: 'Variedad de Café vendido' %>
+<%= column_chart Sale.last_months(12).group("strftime('%m-%Y', date_time)").order(date_time: :asc).sum(:amount), title: 'Cantidad de ventas por mes' %>
+
+<%= column_chart Sale.last_months(12).group("strftime('%m-%Y', date_time)").order(date_time: :asc).average(:price), title: 'Ventas promedio por mes' %>
+
+<%= pie_chart Sale.last_months(12).group(:origin).count, title: 'Cantidad de ventas por origen de Café, últimos 12 meses' %>
+
+<%= pie_chart Sale.last_months(6).group(:origin).count, title: 'Cantidad de ventas por origen de Café, últimos 6 meses' %>
+
+<%= pie_chart Sale.last_months(3).group(:origin).count, title: 'Cantidad de ventas por origen de Café, últimos 6 meses' %>
+
+<%= pie_chart Sale.last_months(1).group(:origin).count, title: 'Cantidad de ventas por origen de Café, último mes' %>
+
+<%= pie_chart Sale.last_months(12).group(:variety).count, title: 'Cantidad de ventas por variedad de Café, últimos 12 meses' %>
+
+<%= pie_chart Sale.last_months(6).group(:variety).count, title: 'Cantidad de ventas por variedad de Café, últimos 6 meses' %>
+
+<%= pie_chart Sale.last_months(3).group(:variety).count, title: 'Cantidad de ventas por variedad de Café, últimos 3 meses' %>
+
+<%= pie_chart Sale.last_months(1).group(:variety).count, title: 'Cantidad de ventas por variedad de Café, último mes' %>
